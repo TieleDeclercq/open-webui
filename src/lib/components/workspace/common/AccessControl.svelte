@@ -34,8 +34,9 @@
 		onChange(accessControl);
 	}
 
-	onMount(async () => {
-		groups = await getGroups(localStorage.token);
+        onMount(async () => {
+                groups = await getGroups(localStorage.token);
+                groups.sort((a, b) => a.name.localeCompare(b.name));
 
 		if (accessControl === null) {
 			if (allowPublic) {
